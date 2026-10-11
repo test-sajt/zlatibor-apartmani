@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Zlatibor Apartmani</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Poppins:wght@300;400;500;600&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="cursor-glow" id="cg" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Zlatibor Apartmani">
+      <img src="slike/logo.jpg" alt="" width="44" height="44">
+      <span class="brand-t"><b>Zlatibor</b><i>Apartmani</i></span>
+    </a>
+    <nav class="links" id="links" aria-label="Navigacija">
+      <a href="#about" data-sec="about" data-i18n="n_about">O nama</a>
+      <a href="#stay" data-sec="stay" data-i18n="n_stay">Smeštaj</a>
+      <a href="#gallery" data-sec="gallery" data-i18n="n_gallery">Galerija</a>
+      <a href="#wellness" data-sec="wellness">Wellness &amp; Spa</a>
+      <a href="#location" data-sec="location" data-i18n="n_loc">Lokacija</a>
+      <a href="#contact" data-sec="contact" data-i18n="n_contact">Kontakt</a>
+    </nav>
+    <div class="nav-r">
+      <button class="lang" id="lang" type="button" aria-label="Srpski / English"><span data-l="sr">SR</span><span data-l="en">EN</span></button>
+      <a class="btn btn-gold btn-sm" href="#contact" data-i18n="n_cta">Pošalji upit</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="links" aria-label="Meni"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <canvas class="dust" id="dust" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow fade d1">Krfska 17 · Zlatibor</p>
+      <h1><span class="ln"><span data-i18n="h1a">Luksuzni apartmani</span></span><span class="ln"><span class="gold-text" data-i18n="h1b">u srcu Zlatibora</span></span></h1>
+      <p class="lead fade d2" data-i18n="lead">Kožni kreveti, topli drveni enterijer, privatna garaža i Wellness &amp; Spa centar u samom objektu. Do jezera vam treba samo 3–5 minuta.</p>
+      <div class="chips fade d2">
+        <span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M3 9c2 0 2-2 4.5-2S10 9 12 9s2-2 4.5-2S19 9 21 9M3 15c2 0 2-2 4.5-2S10 15 12 15s2-2 4.5-2S19 15 21 15"/></svg><span data-i18n="c1">3–5 min od jezera</span></span>
+        <span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M8 20c-2-2-2-4 0-6s2-4 0-6M13 20c-2-2-2-4 0-6s2-4 0-6M18 20c-2-2-2-4 0-6s2-4 0-6"/></svg><span data-i18n="c2">Wellness &amp; Spa u objektu</span></span>
+        <span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M3 11 5.5 5h13L21 11v7a1 1 0 0 1-1 1h-2v-2H6v2H4a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="13.5" r="1"/><circle cx="16.5" cy="13.5" r="1"/></svg><span data-i18n="c3">Privatna garaža</span></span>
+      </div>
+      <div class="cta-row fade d3">
+        <a class="btn btn-gold" href="#contact">
+          <span data-i18n="b1">Pošalji upit</span><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#gallery" data-i18n="b2">Pogledaj galeriju</a>
+      </div>
+      <div class="facts fade d4">
+        <div><b>4–7</b><span data-i18n="f1">gostiju</span></div>
+        <div><b>2</b><span data-i18n="f2">spavaće sobe</span></div>
+        <div><b>1</b><span data-i18n="f3">garažno mesto</span></div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="strips" id="strips" aria-hidden="true">
+        <figure class="strip" style="--k:34;--d:0s"><div class="in"><img src="slike/1.jpg" alt=""></div></figure>
+        <figure class="strip" style="--k:-26;--d:-3s"><div class="in"><img src="slike/2.jpg" alt=""></div></figure>
+        <figure class="strip" style="--k:38;--d:-6s"><div class="in"><img src="slike/3.jpg" alt=""></div></figure>
+        <figure class="strip" style="--k:-30;--d:-9s"><div class="in"><img src="slike/4.jpg" alt=""></div></figure>
+      </div>
+      <div class="badge" aria-hidden="true"><img src="slike/logo.jpg" alt=""><span><b>Zlatibor Apartmani</b>Krfska 17</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq">
+    <span>Zlatibor <i>✦</i> Krfska 17 <i>✦</i> Wellness &amp; Spa <i>✦</i> Premium Apartmani <i>✦</i> Zlatibor <i>✦</i> Krfska 17 <i>✦</i> Wellness &amp; Spa <i>✦</i> Premium Apartmani <i>✦</i></span>
+    <span>Zlatibor <i>✦</i> Krfska 17 <i>✦</i> Wellness &amp; Spa <i>✦</i> Premium Apartmani <i>✦</i> Zlatibor <i>✦</i> Krfska 17 <i>✦</i> Wellness &amp; Spa <i>✦</i> Premium Apartmani <i>✦</i></span>
+  </div>
+</div>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-top rv">
+      <div class="sh">
+        <p class="eyebrow" data-i18n="a_eye">O nama</p>
+        <h2 class="h2" data-i18n="a_h">Dom daleko od kuće, blizu jezera</h2>
+      </div>
+      <p class="lead" data-i18n="a_p">Zlatibor Apartmani su moderni apartmani za porodice i društva koji žele pravi odmor na planini. Svaki detalj, od kožnog uzglavlja do tople rasvete, birali smo tako da se osećate kao u malom boutique hotelu, ali sa prostorom i privatnošću celog stana.</p>
+    </div>
+    <div class="feats">
+      <article class="spot feat rv">
+        <div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 9c2 0 2-2 4.5-2S10 9 12 9s2-2 4.5-2S19 9 21 9M3 15c2 0 2-2 4.5-2S10 15 12 15s2-2 4.5-2S19 15 21 15"/></svg></div>
+        <h3 data-i18n="a1t">3–5 min od jezera</h3>
+        <p data-i18n="a1p">Krfska 17 vas dovodi do Zlatiborskog jezera za nekoliko minuta, a posle šetnje vas čeka topao apartman.</p>
+      </article>
+      <article class="spot feat rv d1">
+        <div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M8 20c-2-2-2-4 0-6s2-4 0-6M13 20c-2-2-2-4 0-6s2-4 0-6M18 20c-2-2-2-4 0-6s2-4 0-6"/></svg></div>
+        <h3 data-i18n="a2t">Wellness &amp; Spa u objektu</h3>
+        <p data-i18n="a2p">Sauna i bazen u zgradi, bez izlaska napolje. Idealno za večeri na planini.</p>
+      </article>
+      <article class="spot feat rv d2">
+        <div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 11 5.5 5h13L21 11v7a1 1 0 0 1-1 1h-2v-2H6v2H4a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="13.5" r="1"/><circle cx="16.5" cy="13.5" r="1"/></svg></div>
+        <h3 data-i18n="a3t">Privatni parking u garaži</h3>
+        <p data-i18n="a3p">Vaš automobil je pod krovom i na sigurnom, bez traženja mesta u sezoni.</p>
+      </article>
+      <article class="spot feat rv d3">
+        <div class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M4 12V9a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3M3 12a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3zM6 17v2M18 17v2"/></svg></div>
+        <h3 data-i18n="a4t">Moderan enterijer</h3>
+        <p data-i18n="a4p">Kožni kreveti, drveni detalji, topla rasveta i potpuno opremljena kuhinja.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec stay" id="stay">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="eyebrow" data-i18n="s_eye">Smeštaj</p>
+      <h2 class="h2" data-i18n="s_h">Apartmani za porodice i društva</h2>
+    </div>
+    <!-- APARTMAN 1 -->
+    <article class="apt rv" id="apartman1">
+      <header class="apt-head">
+        <span class="apt-no">01</span>
+        <h3 class="apt-t"><span data-i18n="apt_word">Apartman</span> 1</h3>
+      </header>
+      <div class="stay-grid">
+        <div class="apt-media">
+          <div class="viewer">
+          <figure class="on"><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img src="slike/2.jpg" alt="Apartman 1 - Spavaća soba" onerror="this.remove()"><figcaption data-i18n="cap1">Kožni krevet, ogledala i topla rasveta za miran san.</figcaption></figure>
+          <figure><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img loading="lazy" src="slike/11.jpg" alt="Apartman 1 - Trpezarija" onerror="this.remove()"><figcaption data-i18n="cap2">Okrugli sto i kožne stolice za zajedničke obroke.</figcaption></figure>
+          <figure><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img loading="lazy" src="slike/10.jpg" alt="Apartman 1 - Kuhinja" onerror="this.remove()"><figcaption data-i18n="cap3">Potpuno opremljena kuhinja sa ugrađenim aparatima.</figcaption></figure>
+          <figure><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img loading="lazy" src="slike/1.jpg" alt="Apartman 1 - Dnevna soba" onerror="this.remove()"><figcaption data-i18n="cap4">Kožna garnitura, biljke i prirodno svetlo.</figcaption></figure>
+          </div>
+          <div class="tabs" role="tablist">
+            <button class="tab" role="tab" aria-selected="true" type="button" data-i18n="t1">Spavaća soba</button>
+            <button class="tab" role="tab" aria-selected="false" type="button" data-i18n="t2">Trpezarija</button>
+            <button class="tab" role="tab" aria-selected="false" type="button" data-i18n="t3">Kuhinja</button>
+            <button class="tab" role="tab" aria-selected="false" type="button" data-i18n="t4">Dnevna soba</button>
+          </div>
+        </div>
+        <div class="stay-info">
+          <dl class="specs">
+            <div><dt data-i18n="sp1">Kapacitet</dt><dd>4–7 <span data-i18n="v1">gostiju</span></dd></div>
+            <div><dt data-i18n="sp2">Spavaće sobe</dt><dd>2</dd></div>
+            <div><dt data-i18n="sp3">Kupatilo</dt><dd>1</dd></div>
+            <div><dt data-i18n="sp4">Garaža</dt><dd data-i18n="v4">1 mesto</dd></div>
+            <div><dt data-i18n="sp5">Adresa</dt><dd>Krfska 17</dd></div>
+          </dl>
+          <div class="pills">
+            <span class="pill">Wellness &amp; Spa</span>
+            <span class="pill" data-i18n="am2">Privatna garaža</span>
+            <span class="pill" data-i18n="am3">Opremljena kuhinja</span>
+            <span class="pill" data-i18n="am4">Kožni kreveti</span>
+            <span class="pill" data-i18n="am5">Dnevna soba sa TV-om</span>
+            <span class="pill" data-i18n="am6">Balkon</span>
+          </div>
+          <p class="note" data-i18n="s_note">Kapacitet i raspored zavise od izabranog apartmana. Pišite nam i preporučićemo najbolju opciju.</p>
+          <a class="btn btn-gold" href="#contact" data-i18n="s_btn">Proveri slobodne termine</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- APARTMAN 2: slike stavi u slike/apartman2/ (spavaca.jpg, trpezarija.jpg, kuhinja.jpg, dnevna.jpg). Dok ih nema, vidi se "Fotografija uskoro". Proveri kapacitet i broj soba. -->
+    <article class="apt rv flip" id="apartman2">
+      <header class="apt-head">
+        <span class="apt-no">02</span>
+        <h3 class="apt-t"><span data-i18n="apt_word">Apartman</span> 2</h3>
+      </header>
+      <div class="stay-grid">
+        <div class="apt-media">
+          <div class="viewer">
+          <figure class="on"><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img src="slike/apartman2/spavaca.jpg" alt="Apartman 2 - Spavaća soba" onerror="this.remove()"><figcaption data-i18n="cap5">Udobna spavaća soba za miran odmor.</figcaption></figure>
+          <figure><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img loading="lazy" src="slike/apartman2/trpezarija.jpg" alt="Apartman 2 - Trpezarija" onerror="this.remove()"><figcaption data-i18n="cap6">Prostor za zajedničke obroke.</figcaption></figure>
+          <figure><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img loading="lazy" src="slike/apartman2/kuhinja.jpg" alt="Apartman 2 - Kuhinja" onerror="this.remove()"><figcaption data-i18n="cap7">Opremljena kuhinja sa svim što vam treba.</figcaption></figure>
+          <figure><div class="ph" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg><span data-i18n="ph_soon">Fotografija uskoro</span></div><img loading="lazy" src="slike/apartman2/dnevna.jpg" alt="Apartman 2 - Dnevna soba" onerror="this.remove()"><figcaption data-i18n="cap8">Dnevna soba za druženje i opuštanje.</figcaption></figure>
+          </div>
+          <div class="tabs" role="tablist">
+            <button class="tab" role="tab" aria-selected="true" type="button" data-i18n="t1">Spavaća soba</button>
+            <button class="tab" role="tab" aria-selected="false" type="button" data-i18n="t2">Trpezarija</button>
+            <button class="tab" role="tab" aria-selected="false" type="button" data-i18n="t3">Kuhinja</button>
+            <button class="tab" role="tab" aria-selected="false" type="button" data-i18n="t4">Dnevna soba</button>
+          </div>
+        </div>
+        <div class="stay-info">
+          <dl class="specs">
+            <div><dt data-i18n="sp1">Kapacitet</dt><dd>4–7 <span data-i18n="v1">gostiju</span></dd></div>
+            <div><dt data-i18n="sp2">Spavaće sobe</dt><dd>2</dd></div>
+            <div><dt data-i18n="sp3">Kupatilo</dt><dd>1</dd></div>
+            <div><dt data-i18n="sp4">Garaža</dt><dd data-i18n="v4">1 mesto</dd></div>
+            <div><dt data-i18n="sp5">Adresa</dt><dd>Krfska 17</dd></div>
+          </dl>
+          <div class="pills">
+            <span class="pill">Wellness &amp; Spa</span>
+            <span class="pill" data-i18n="am2">Privatna garaža</span>
+            <span class="pill" data-i18n="am3">Opremljena kuhinja</span>
+            <span class="pill" data-i18n="am4">Kožni kreveti</span>
+            <span class="pill" data-i18n="am5">Dnevna soba sa TV-om</span>
+            <span class="pill" data-i18n="am6">Balkon</span>
+          </div>
+          <p class="note" data-i18n="s_note">Kapacitet i raspored zavise od izabranog apartmana. Pišite nam i preporučićemo najbolju opciju.</p>
+          <a class="btn btn-gold" href="#contact" data-i18n="s_btn">Proveri slobodne termine</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="eyebrow" data-i18n="g_eye">Galerija</p>
+      <h2 class="h2" data-i18n="g_h">Pogledajte kako izgleda boravak</h2>
+    </div>
+    <div class="gal rv" id="gal">
+      <button class="g g1" type="button"><img src="slike/9.jpg" alt="Spavaća soba" loading="lazy"><span data-i18n="gc1">Spavaća soba</span></button>
+      <button class="g g2" type="button"><img src="slike/2.jpg" alt="Krevet sa jastucima i ogledalima" loading="lazy"><span data-i18n="gc2">Krevet i ogledala</span></button>
+      <button class="g g3" type="button"><img src="slike/11.jpg" alt="Trpezarija" loading="lazy"><span data-i18n="gc3">Trpezarija</span></button>
+      <button class="g g4" type="button"><img src="slike/10.jpg" alt="Kuhinja" loading="lazy"><span data-i18n="gc4">Kuhinja</span></button>
+      <button class="g g5" type="button"><img src="slike/4.jpg" alt="Dnevna soba" loading="lazy"><span data-i18n="gc5">Dnevna soba</span></button>
+      <button class="g g6" type="button"><img src="slike/1.jpg" alt="Garnitura u dnevnom boravku" loading="lazy"><span data-i18n="gc6">Dnevni boravak</span></button>
+      <button class="g g7" type="button"><img src="slike/6.jpg" alt="Balkon" loading="lazy"><span data-i18n="gc7">Balkon</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec well" id="wellness">
+  <div class="mist" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap well-grid">
+    <div class="rv">
+      <div class="sh" style="margin-bottom:0">
+        <p class="eyebrow">Wellness &amp; Spa</p>
+        <h2 class="h2" data-i18n="w_h">Opuštanje bez izlaska iz zgrade</h2>
+        <p class="lead" data-i18n="w_p">Posle šetnje oko jezera ili dana na planini, sauna i bazen su nadomak vašeg apartmana.</p>
+      </div>
+      <ul class="well-list">
+        <li><span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M8 20c-2-2-2-4 0-6s2-4 0-6M13 20c-2-2-2-4 0-6s2-4 0-6M18 20c-2-2-2-4 0-6s2-4 0-6"/></svg></span><span data-i18n="w1">Sauna</span></li>
+        <li><span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 9c2 0 2-2 4.5-2S10 9 12 9s2-2 4.5-2S19 9 21 9M3 15c2 0 2-2 4.5-2S10 15 12 15s2-2 4.5-2S19 15 21 15"/></svg></span><span data-i18n="w2">Bazen</span></li>
+        <li><span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span data-i18n="w3">U samom objektu, na istoj adresi</span></li>
+      </ul>
+      <p class="note" style="margin-top:20px" data-i18n="w_note">Radno vreme i uslove korišćenja saznajte od nas pri rezervaciji.</p>
+    </div>
+    <div class="orb rv d1" aria-hidden="true">
+      <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+      <div class="core"></div>
+      <svg class="steam" viewBox="0 0 100 120"><path d="M30 118c-14-18 14-30 0-50s12-34 0-52"/><path d="M52 118c-14-18 14-30 0-50s12-34 0-52"/><path d="M74 118c-14-18 14-30 0-50s12-34 0-52"/></svg>
+      <span class="tag t1">Sauna</span><span class="tag t2" data-i18n="w2">Bazen</span><span class="tag t3">Spa</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="location">
+  <div class="wrap loc-grid">
+    <div class="loc-copy rv">
+      <div class="sh" style="margin-bottom:0">
+        <p class="eyebrow" data-i18n="l_eye">Lokacija</p>
+        <h2 class="h2" data-i18n="l_h">Nadomak jezera</h2>
+        <p class="lead" data-i18n="l_p">Apartmani se nalaze na adresi Krfska 17 na Zlatiboru. Do jezera je 3–5 minuta.</p>
+      </div>
+      <div class="addr"><span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small data-i18n="k_addr">Adresa</small><b>Krfska 17, Zlatibor</b></span></div>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Krfska+17+Zlatibor" target="_blank" rel="noopener"><span data-i18n="l_btn">Otvori u Google mapama</span><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+    <div class="map rv d1" aria-hidden="true">
+      <svg viewBox="0 0 640 440" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17121f"/><stop offset=".6" stop-color="#241a2b"/><stop offset="1" stop-color="#3a2530"/></linearGradient>
+          <radialGradient id="moon" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff3d2"/><stop offset=".6" stop-color="#e6c887"/><stop offset="1" stop-color="#b18a45"/></radialGradient>
+          <radialGradient id="halo"><stop offset="0" stop-color="rgba(244,220,162,.45)"/><stop offset="1" stop-color="rgba(244,220,162,0)"/></radialGradient>
+          <linearGradient id="lake" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#37596c"/><stop offset="1" stop-color="#162630"/></linearGradient>
+          <path id="pine" d="M0-40 12-14H5L16 8H6L18 30H-18L-6 8H-16L-5-14H-12Z"/>
+        </defs>
+        <rect width="640" height="440" fill="url(#sky)"/>
+        <g id="stars"></g>
+        <circle cx="500" cy="82" r="90" fill="url(#halo)"/>
+        <circle cx="500" cy="82" r="26" fill="url(#moon)"/>
+        <path d="M0 262C60 210 110 190 170 214S280 160 340 184 450 128 520 168 600 158 640 178V440H0Z" fill="#1d1728"/>
+        <path d="M0 318C80 278 150 268 220 292S340 258 420 288 560 258 640 298V440H0Z" fill="#150f1b" stroke="rgba(212,173,99,.35)" stroke-width="1"/>
+        <g fill="#0e0a12" opacity=".95">
+          <use href="#pine" x="40" y="318" transform="translate(0 0)"/><use href="#pine" x="78" y="326" transform="scale(1)"/>
+          <use href="#pine" x="238" y="322"/><use href="#pine" x="272" y="318"/><use href="#pine" x="610" y="326"/><use href="#pine" x="578" y="332"/>
+          <use href="#pine" x="22" y="340"/><use href="#pine" x="250" y="344"/>
+        </g>
+        <path d="M290 372C335 338 470 334 560 354 612 366 622 402 560 416 478 436 342 430 290 372Z" fill="url(#lake)" stroke="rgba(212,173,99,.4)"/>
+        <g stroke="rgba(244,220,162,.65)" stroke-width="1.6" stroke-linecap="round" fill="none">
+          <path class="shim" d="M360 384h70"/><path class="shim" d="M440 402h90" style="animation-delay:-1.2s"/><path class="shim" d="M486 372h48" style="animation-delay:-2.2s"/>
+        </g>
+        <path class="route" d="M150 272C210 306 250 346 322 376" fill="none" stroke="#f4dca2" stroke-width="2.2" stroke-linecap="round"/>
+        <circle class="pulse" cx="150" cy="272" r="9" fill="rgba(244,220,162,.5)"/>
+        <circle cx="150" cy="272" r="7" fill="#f4dca2" stroke="#8d6b2e" stroke-width="2"/>
+        <circle cx="322" cy="376" r="4.5" fill="#f4dca2"/>
+      </svg>
+      <span class="lbl l1">Krfska 17</span>
+      <span class="lbl l2" data-i18n="l_lake">Jezero · 3–5 min</span>
+    </div>
+  </div>
+</section>
+
+<section class="ig">
+  <div class="wrap">
+    <div class="ig-card rv">
+      <div class="ig-copy">
+        <p class="eyebrow">Instagram</p>
+        <div class="handle gold-text">@zlatiborapartmani__</div>
+        <p class="lead" data-i18n="i_p">Fotografije i snimci apartmana, kao i utisci gostiju u istaknutim pričama „Reviews“, nalaze se na našem profilu.</p>
+        <a class="btn btn-gold" href="https://www.instagram.com/zlatiborapartmani__/" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></svg><span data-i18n="i_btn">Otvori Instagram</span></a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b class="gold-text" data-to="2700" data-suf="+">0</b><span data-i18n="i_f">pratilaca</span></div>
+        <div class="stat"><b class="gold-text" data-to="100" data-suf="+">0</b><span data-i18n="i_o">objava</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="eyebrow" data-i18n="k_eye">Kontakt</p>
+      <h2 class="h2" data-i18n="k_h">Pošaljite upit za vaš termin</h2>
+      <p class="lead" data-i18n="k_p">Javite nam datum i broj gostiju, a mi vam odgovaramo sa slobodnim apartmanima i cenom.</p>
+    </div>
+    <div class="k-grid">
+      <ul class="k-list rv">
+        <li class="spot k-row">
+          <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+          <span class="t"><small data-i18n="k_phone">Telefon</small><a href="tel:+381653294507">+381 65 329 4507</a></span>
+          <button class="cp" type="button" data-copy="+381653294507" aria-label="Kopiraj"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+        </li>
+        <li class="spot k-row">
+          <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+          <span class="t"><small data-i18n="k_phone">Telefon</small><a href="tel:+381645122941">+381 64 512 2941</a></span>
+          <button class="cp" type="button" data-copy="+381645122941" aria-label="Kopiraj"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+        </li>
+        <li class="spot k-row">
+          <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="t"><small data-i18n="k_mail">E-pošta</small><a href="mailto:zlatiborapartmani06@gmail.com">zlatiborapartmani06@gmail.com</a></span>
+          <button class="cp" type="button" data-copy="zlatiborapartmani06@gmail.com" aria-label="Kopiraj"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+        </li>
+        <li class="spot k-row">
+          <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></svg></span>
+          <span class="t"><small>Instagram</small><a href="https://www.instagram.com/zlatiborapartmani__/" target="_blank" rel="noopener">@zlatiborapartmani__</a></span>
+          <button class="cp" type="button" data-copy="@zlatiborapartmani__" aria-label="Kopiraj"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+        </li>
+        <li class="spot k-row">
+          <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="t"><small data-i18n="k_addr">Adresa</small><span class="v">Krfska 17, Zlatibor</span></span>
+          <button class="cp" type="button" data-copy="Krfska 17, Zlatibor" aria-label="Kopiraj"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></button>
+        </li>
+      </ul>
+
+      <form class="spot form rv d1" id="inq" novalidate>
+        <div class="row">
+          <div class="fld"><label for="f-name" data-i18n="fl_name">Ime i prezime</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="fld"><label for="f-phone" data-i18n="fl_phone">Telefon</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row">
+          <div class="fld"><label for="f-in" data-i18n="fl_in">Dolazak</label><input id="f-in" name="in" type="date" required></div>
+          <div class="fld"><label for="f-out" data-i18n="fl_out">Odlazak</label><input id="f-out" name="out" type="date" required></div>
+        </div>
+        <div class="fld"><label for="f-g" data-i18n="fl_g">Broj gostiju</label>
+          <select id="f-g" name="guests"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option></select></div>
+        <div class="fld"><label for="f-msg" data-i18n="fl_msg">Poruka (nije obavezno)</label><textarea id="f-msg" name="msg" rows="3" data-i18n-ph="ph_msg" placeholder="Npr. dolazimo sa detetom, treba nam parking."></textarea></div>
+        <span class="nights" id="nights" hidden></span>
+        <p class="err" id="err" role="alert" hidden></p>
+        <button class="btn btn-gold" type="submit" style="justify-self:start"><span data-i18n="fl_btn">Pripremi upit</span><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+
+        <div class="out" id="out" hidden>
+          <p data-i18n="o_ready">Vaš upit je spreman. Izaberite kako da nam ga pošaljete.</p>
+          <textarea id="msg-out" readonly aria-label="Poruka"></textarea>
+          <div class="btns">
+            <a class="btn btn-gold btn-sm" id="o-wa" href="https://wa.me/381653294507" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-ghost btn-sm" id="o-mail" href="mailto:zlatiborapartmani06@gmail.com"><span data-i18n="o_mail">E-pošta</span></a>
+            <button class="btn btn-ghost btn-sm" id="o-copy" type="button"><span data-i18n="o_copy">Kopiraj poruku</span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#top" aria-label="Zlatibor Apartmani"><img src="slike/logo.jpg" alt="" width="44" height="44"><span class="brand-t"><b>Zlatibor</b><i>Apartmani</i></span></a>
+    <p><span data-i18n="ft_p">Luksuzni apartmani sa Wellness &amp; Spa centrom na Zlatiboru.</span> © 2026 Zlatibor Apartmani · Krfska 17</p>
+    <nav aria-label="Footer">
+      <a href="#about" data-i18n="n_about">O nama</a><a href="#stay" data-i18n="n_stay">Smeštaj</a><a href="#gallery" data-i18n="n_gallery">Galerija</a><a href="#location" data-i18n="n_loc">Lokacija</a><a href="#contact" data-i18n="n_contact">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="dock">
+  <a href="tel:+381653294507"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span data-i18n="d1">Pozovi</span></a>
+  <a href="https://wa.me/381653294507" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>WhatsApp</a>
+  <a class="p" href="#contact"><span data-i18n="d3">Upit</span></a>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Galerija">
+  <button class="x" type="button" aria-label="Zatvori"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" type="button" aria-label="Prethodna"><svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+  <button class="nx" type="button" aria-label="Sledeća"><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
