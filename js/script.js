@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Tomi Lux Zlatibor - skripta
-   Prevod SR/EN, navigacija, hero efekti, prikaz apartmana, galerija sa
+   Zlatibor Apartmani - skripta
+   Prevod SR/EN, navigacija, hero efekti, prikaz smestaja, galerija sa
    lightbox-om, brojaci, kopiranje i formular za upit.
    ========================================================================== */
 (function(){
@@ -13,41 +13,49 @@ var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return nu
 /* ---------- i18n ---------- */
 var EN={
 n_about:"About",n_stay:"Stay",n_gallery:"Gallery",n_loc:"Location",n_contact:"Contact",n_cta:"Send inquiry",
-h1a:"Tomi Lux apartment",h1b:"in Zlatibor",
-lead:"A 4-star apartment for up to 4 guests, with Wellness & Spa, parking and Wi-Fi. To book, message us on Instagram.",
-c1:"4-star apartment",b1:"Send inquiry",b2:"View the apartment",
-f1:"rating",f2:"guests",f3:"bookings",
-a_eye:"About us",a_h:"Comfortable stay in Zlatibor",
-a_p:"Tomi Lux is a 4-star apartment at Hajdučka 2b in Zlatibor, for up to 4 guests. Wellness & Spa, parking and Wi-Fi are included in the offer, and we take bookings through Instagram messages.",
-a1t:"4-star apartment",a1p:"Accommodation rated 4 stars, at Hajdučka 2b.",
-a2p:"Wellness & Spa is part of the Tomi Lux offer.",a3p:"Parking is available to apartment guests.",a4p:"Wi-Fi internet in the apartment.",
-s_eye:"Accommodation",s_h:"Tomi Lux apartment",ph_soon:"Photo coming soon",
-sp1:"Capacity",v1:"guests",sp2:"Rating",sp3:"Address",sp4:"Bookings",
-s_note:"For free dates and the price, send an inquiry or message us on Instagram.",s_btn:"Check availability",
-g_eye:"Gallery",g_h:"See the apartment",
-w_h:"Relaxation in Zlatibor",w_p:"Wellness & Spa is part of the Tomi Lux offer.",w_note:"Opening hours and terms of use: ask us when booking.",
-l_eye:"Location",l_h:"Hajdučka 2b",l_p:"The Tomi Lux apartment is at Hajdučka 2b in Zlatibor.",l_btn:"Open in Google Maps",
-i_p:"Photos of the apartment and news are on our Instagram profile. We also take bookings by direct message.",i_btn:"Open Instagram",i_f:"followers",i_o:"posts",i_g:"following",
-k_eye:"Contact",k_h:"Ask about your dates",k_p:"Tell us your dates and number of guests and we will reply. You can also call us or message us on Instagram.",
-k_phone:"Phone",k_addr:"Address",
+h1a:"Luxury apartments",h1b:"in the heart of Zlatibor",
+lead:"Leather beds, warm wood interiors, a private garage and a Wellness & Spa centre right in the building. The lake is only 3–5 minutes away.",
+c1:"3–5 min to the lake",c2:"Wellness & Spa on site",c3:"Private garage",b1:"Send inquiry",b2:"View gallery",
+f1:"guests",f2:"bedrooms",f3:"garage space",
+a_eye:"About us",a_h:"A home away from home, close to the lake",
+a_p:"Zlatibor Apartmani offers modern apartments for families and groups who want a proper mountain break. We chose every detail, from the leather headboard to the warm lighting, so you feel like you are in a small boutique hotel, with the space and privacy of a whole flat.",
+a1t:"3–5 min to the lake",a1p:"Krfska 17 puts you at Lake Zlatibor within minutes, and a warm apartment waits for you after your walk.",
+a2t:"Wellness & Spa on site",a2p:"A sauna and a pool inside the building, no need to step outside. Perfect for mountain evenings.",
+a3t:"Private garage parking",a3p:"Your car stays under cover and safe, with no hunting for a space in high season.",
+a4t:"Modern interior",a4p:"Leather beds, wooden details, warm lighting and a fully equipped kitchen.",
+s_eye:"Accommodation",s_h:"Apartments for families and groups",
+apt_word:"Apartment",ph_soon:"Photo coming soon",cap1:"A leather bed, mirrors and warm lighting for restful sleep.",cap2:"A round table and leather chairs for shared meals.",cap3:"A fully equipped kitchen with built-in appliances.",cap4:"Leather seating, plants and natural light.",
+cap5:"A comfortable bedroom for a restful break.",cap6:"Space for shared meals.",cap7:"An equipped kitchen with everything you need.",cap8:"A living room for relaxing together.",
+t1:"Bedroom",t2:"Dining",t3:"Kitchen",t4:"Living room",
+sp1:"Capacity",v1:"guests",sp2:"Bedrooms",sp3:"Bathroom",sp4:"Garage",v4:"1 space",sp5:"Address",
+am2:"Private garage",am3:"Equipped kitchen",am4:"Leather beds",am5:"Living room with TV",am6:"Balcony",
+s_note:"Capacity and layout depend on the apartment. Message us and we will suggest the best fit.",s_btn:"Check availability",
+g_eye:"Gallery",g_h:"See what a stay looks like",
+gc1:"Bedroom",gc2:"Bed and mirrors",gc3:"Dining",gc4:"Kitchen",gc5:"Living room",gc6:"Lounge",gc7:"Balcony",
+w_h:"Relaxation without leaving the building",w_p:"After a walk around the lake or a day in the mountains, the sauna and the pool are a short way from your apartment.",
+w1:"Sauna",w2:"Pool",w3:"On site, at the same address",w_note:"Opening hours and terms of use: ask us when booking.",
+l_eye:"Location",l_h:"Close to the lake",l_p:"The apartments are at Krfska 17 in Zlatibor. The lake is 3–5 minutes away.",l_btn:"Open in Google Maps",l_lake:"Lake · 3–5 min",
+i_p:"Photos and videos of the apartments, plus guest reviews in the “Reviews” highlights, are on our profile.",i_btn:"Open Instagram",i_f:"followers",i_o:"posts",
+k_eye:"Contact",k_h:"Ask about your dates",k_p:"Tell us your dates and number of guests, and we will reply with available apartments and the price.",
+k_phone:"Phone",k_mail:"Email",k_addr:"Address",
 fl_name:"Full name",fl_phone:"Phone",fl_in:"Check-in",fl_out:"Check-out",fl_g:"Guests",fl_msg:"Message (optional)",ph_msg:"E.g. we are coming with a child and need parking.",fl_btn:"Prepare inquiry",
-o_ready:"Your inquiry is ready. Choose how to send it to us.",o_copy:"Copy message",o_hint:"For Instagram: the message is copied, then paste it into the chat.",
-ft_p:"A 4-star apartment with Wellness & Spa in Zlatibor.",d1:"Call",d3:"Inquiry",g_vid:"Video tour",vid_soon:"Video coming soon"
+o_ready:"Your inquiry is ready. Choose how to send it to us.",o_mail:"Email",o_copy:"Copy message",
+ft_p:"Luxury apartments with a Wellness & Spa centre in Zlatibor.",d1:"Call",d3:"Inquiry"
 };
-var SR={},SRPH={},lang='sr',T_SR=document.title,T_EN='Tomi Lux Apartment Zlatibor – Hajdučka 2b, 4-star stay';
+var SR={},SRPH={},lang='sr';
 $$('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n'); if(!(k in SR)) SR[k]=el.innerHTML;});
 $$('[data-i18n-ph]').forEach(function(el){SRPH[el.getAttribute('data-i18n-ph')]=el.getAttribute('placeholder');});
 var MSG={
  sr:{err:"Izaberite datum odlaska posle datuma dolaska.",copied:"Kopirano",nights:["noćenje","noćenja","noćenja"],
-  hello:"Poštovani, zanima me smeštaj u apartmanu Tomi Lux.",name:"Ime",phone:"Telefon",ci:"Dolazak",co:"Odlazak",gu:"Broj gostiju",nt:"Broj noćenja",note:"Napomena",thx:"Hvala unapred!"},
+  hello:"Poštovani, zanima me smeštaj u Zlatibor Apartmanima.",name:"Ime",phone:"Telefon",ci:"Dolazak",co:"Odlazak",gu:"Broj gostiju",nt:"Broj noćenja",note:"Napomena",thx:"Hvala unapred!",sub:"Upit za smeštaj"},
  en:{err:"Pick a check-out date after check-in.",copied:"Copied",nights:["night","nights","nights"],
-  hello:"Hello, I am interested in staying at the Tomi Lux apartment.",name:"Name",phone:"Phone",ci:"Check-in",co:"Check-out",gu:"Guests",nt:"Nights",note:"Note",thx:"Thank you in advance!"}
+  hello:"Hello, I am interested in staying at Zlatibor Apartmani.",name:"Name",phone:"Phone",ci:"Check-in",co:"Check-out",gu:"Guests",nt:"Nights",note:"Note",thx:"Thank you in advance!",sub:"Accommodation inquiry"}
 };
 function setLang(l){
-  lang=l; document.title=(l==='en'?T_EN:T_SR); document.documentElement.setAttribute('data-lang',l); document.documentElement.lang=(l==='en'?'en':'sr-Latn');
+  lang=l; document.documentElement.setAttribute('data-lang',l); document.documentElement.lang=(l==='en'?'en':'sr-Latn');
   $$('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n'); var v=(l==='en'&&(k in EN))?EN[k]:SR[k]; if(v!=null) el.innerHTML=v;});
   $$('[data-i18n-ph]').forEach(function(el){var k=el.getAttribute('data-i18n-ph'); el.setAttribute('placeholder',(l==='en'&&EN[k])?EN[k]:SRPH[k]);});
-  store.set('tl-lang',l); counters(true); if(!$('#out').hidden) build(true); updNights();
+  store.set('za-lang',l); counters(true); if(!$('#out').hidden) build(true); updNights(); syncLb();
 }
 $('#lang').addEventListener('click',function(){setLang(lang==='sr'?'en':'sr')});
 
@@ -63,7 +71,7 @@ function onScroll(){
 window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
 onScroll();
 var burger=$('#burger');
-function menu(open){nav.classList.toggle('open',open);document.body.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open?'true':'false')}
+function menu(open){nav.classList.toggle('open',open);burger.setAttribute('aria-expanded',open?'true':'false')}
 burger.addEventListener('click',function(){menu(!nav.classList.contains('open'))});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
 $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
@@ -85,10 +93,15 @@ if('IntersectionObserver' in window){
 
 /* ---------- pointer effects ---------- */
 var fine=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
-if(fine&&!reduce&&strips){
-  window.addEventListener('pointermove',function(e){var hero=$('.hero').getBoundingClientRect();
-    if(e.clientY<hero.bottom&&e.clientY>hero.top){strips.style.setProperty('--mx',((e.clientX/window.innerWidth)-.5)*2);strips.style.setProperty('--my',((e.clientY-hero.top)/hero.height-.5)*2);}
+if(fine&&!reduce){
+  var cg=$('#cg'),cx=-999,cy=-999,tx=-999,ty=-999,run=false;
+  window.addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;cg.style.opacity=1;if(!run){run=true;requestAnimationFrame(loop)}
+    var hero=$('.hero').getBoundingClientRect();
+    if(e.clientY<hero.bottom&&e.clientY>hero.top&&strips){strips.style.setProperty('--mx',((e.clientX/window.innerWidth)-.5)*2);strips.style.setProperty('--my',((e.clientY-hero.top)/hero.height-.5)*2);}
   },{passive:true});
+  function loop(){cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;cg.style.transform='translate3d('+cx+'px,'+cy+'px,0)';
+    if(Math.abs(tx-cx)>.5||Math.abs(ty-cy)>.5)requestAnimationFrame(loop);else run=false;}
+  document.addEventListener('mouseleave',function(){cg.style.opacity=0});
 }
 $$('.spot').forEach(function(el){
   el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--mx2',(e.clientX-r.left)+'px');el.style.setProperty('--my2',(e.clientY-r.top)+'px');},{passive:true});
@@ -100,7 +113,7 @@ $$('.btn-gold,.btn-ghost').forEach(function(b){ if(!fine||reduce) return;
 
 /* ---------- gold dust ---------- */
 (function(){
-  var c=$('#dust'); if(!c||!c.getContext||!fine) return; var ctx=c.getContext('2d'),dpr=Math.min(window.devicePixelRatio||1,2),W=0,H=0,P=[],on=true,raf=0;
+  var c=$('#dust'); if(!c||!c.getContext) return; var ctx=c.getContext('2d'),dpr=Math.min(window.devicePixelRatio||1,2),W=0,H=0,P=[],on=true,raf=0;
   var sp=document.createElement('canvas');sp.width=sp.height=32;var sx=sp.getContext('2d');var g=sx.createRadialGradient(16,16,0,16,16,16);
   g.addColorStop(0,'rgba(255,238,196,1)');g.addColorStop(.25,'rgba(244,220,162,.55)');g.addColorStop(1,'rgba(212,173,99,0)');sx.fillStyle=g;sx.fillRect(0,0,32,32);
   function mk(init){return{x:Math.random()*W,y:init?Math.random()*H:H+12,r:Math.random()*4.5+2,vy:-(Math.random()*.28+.08),vx:(Math.random()-.5)*.12,a:Math.random()*.6+.2,ph:Math.random()*6.28,s:Math.random()*.02+.006}}
@@ -115,191 +128,34 @@ $$('.btn-gold,.btn-ghost').forEach(function(b){ if(!fine||reduce) return;
   var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,200)});
 })();
 
-/* ---------- stay viewer: 5 fotografija, strelice + prevlacenje ---------- */
-(function(){
-  var v=$('#viewer'); if(!v) return;
-  var tr=$('.track',v),n=$$('figure',tr).length,dots=$$('.dot'),cnt=$('.vcount',v),cur=0,raf=0;
-  function mark(){dots.forEach(function(t,k){t.setAttribute('aria-selected',k===cur?'true':'false')});cnt.textContent=(cur+1)+' / '+n}
-  function go(i){cur=(i+n)%n;tr.scrollTo({left:cur*tr.clientWidth,behavior:reduce?'auto':'smooth'});mark()}
-  tr.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);if(i!==cur&&i>=0&&i<n){cur=i;mark()}})},{passive:true});
-  $('.pv',v).addEventListener('click',function(){go(cur-1)});
-  $('.nx',v).addEventListener('click',function(){go(cur+1)});
-  dots.forEach(function(t,k){t.addEventListener('click',function(){go(k)})});
-  v.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}});
-  window.addEventListener('resize',function(){tr.scrollTo({left:cur*tr.clientWidth,behavior:'auto'})});
-  /* dok nema fotografija, nema ni strelica ni tackica */
-  window.addEventListener('load',function(){if($$('img',tr).length)return;$$('.vnav,.vcount,.dots').forEach(function(x){x.hidden=true})});
-})();
+/* ---------- stars in the location art ---------- */
+(function(){var gEl=$('#stars'); if(!gEl) return; var s=7,h='';function r(){s=(s*9301+49297)%233280;return s/233280}
+  for(var i=0;i<46;i++){h+='<circle class="star" cx="'+(r()*640).toFixed(0)+'" cy="'+(r()*190).toFixed(0)+'" r="'+(r()*1.1+.4).toFixed(1)+'" fill="#f4dca2" style="animation-delay:'+(-r()*4).toFixed(1)+'s"/>'}
+  gEl.innerHTML=h;})();
 
-/* ---------- galerija video: autoplay samo dok je video na ekranu ---------- */
-(function(){
-  var vs=$$('#vids .vid video'); if(!vs.length) return;
-  var conn=navigator.connection||{},still=reduce||conn.saveData;
-  function load(v){if(!v.getAttribute('src')&&v.getAttribute('data-src')){v.src=v.getAttribute('data-src');v.load()}}
-  vs.forEach(function(v){
-    var box=v.parentNode;
-    v.addEventListener('playing',function(){box.classList.add('ok')});
-    v.addEventListener('loadeddata',function(){if(still)box.classList.add('ok')});
-    v.addEventListener('error',function(){box.classList.remove('ok');v.removeAttribute('src')});
-    v.addEventListener('click',function(){if(!v.getAttribute('src'))return;if(v.paused){v._m=false;v.play().catch(function(){})}else{v._m=true;v.pause()}});
-    if(still){v.controls=true;v.preload='metadata'}
-  });
-  if(!('IntersectionObserver' in window)) return;
-  var near=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){load(en.target);near.unobserve(en.target)}})},{rootMargin:'300px 0px'});
-  var seen=new IntersectionObserver(function(es){es.forEach(function(en){var v=en.target;
-    if(en.isIntersecting&&!still){load(v);if(!v._m&&v.paused&&v.getAttribute('src'))v.play().catch(function(){})}
-    else if(!en.isIntersecting&&!v.paused)v.pause()})},{threshold:.45});
-  vs.forEach(function(v){near.observe(v);seen.observe(v)});
-})();
+/* ---------- stay viewer (svaki apartman ima svoj prikaz) ---------- */
+$$('.apt').forEach(function(apt){
+  var figs=$$('.viewer figure',apt),tabs=$$('.tabs .tab',apt),v=$('.viewer',apt),cur=0,timer=null;
+  function show(i){cur=i;figs.forEach(function(f,j){f.classList.toggle('on',j===i)});tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i?'true':'false')})}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){stop();show(i)})});
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  function start(){if(reduce||timer)return;timer=setInterval(function(){show((cur+1)%figs.length)},5200)}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es[0].isIntersecting?start():stop()},{threshold:.4}).observe(v)}
+  v.addEventListener('pointerdown',stop);
+});
 
 /* ---------- lightbox ---------- */
 var items=$$('#gal .g'),lb=$('#lb'),lbImg=$('#lb-img'),lbCap=$('#lb-cap'),li=0,lastFocus=null;
-function lbShape(im){var r=imgRatio(im);if(r)lbImg.style.setProperty('--r',clampN(r,.3,4).toFixed(3))}
-lbImg.addEventListener('load',function(){lbShape(lbImg)});
-function avail(){return items.filter(function(b){return b.querySelector('img')})}
-function syncLb(){if(lb.hidden)return;var list=avail();if(list[li])lbCap.textContent=list[li].querySelector('span').textContent}
-function openLb(i){var list=avail();if(!list.length)return;li=(i+list.length)%list.length;var im=list[li].querySelector('img');lbShape(im);lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;syncLb();
+function syncLb(){if(lb.hidden)return;lbCap.textContent=items[li].querySelector('span').textContent}
+function openLb(i){li=(i+items.length)%items.length;var im=items[li].querySelector('img');lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;syncLb();
   if(lb.hidden){lastFocus=document.activeElement;lb.hidden=false;requestAnimationFrame(function(){lb.classList.add('show')});document.body.style.overflow='hidden';$('.x',lb).focus()}}
 function closeLb(){lb.classList.remove('show');document.body.style.overflow='';setTimeout(function(){lb.hidden=true},380);if(lastFocus)lastFocus.focus()}
-items.forEach(function(b){b.addEventListener('click',function(){var idx=avail().indexOf(b);if(idx>-1)openLb(idx)})});
+items.forEach(function(b,i){b.addEventListener('click',function(){openLb(i)})});
 $('.x',lb).addEventListener('click',closeLb);$('.pv',lb).addEventListener('click',function(){openLb(li-1)});$('.nx',lb).addEventListener('click',function(){openLb(li+1)});
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
 document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb(li-1);if(e.key==='ArrowRight')openLb(li+1)});
 var sx0=null;lb.addEventListener('pointerdown',function(e){sx0=e.clientX});
 lb.addEventListener('pointerup',function(e){if(sx0===null)return;var d=e.clientX-sx0;sx0=null;if(Math.abs(d)>50)openLb(li+(d<0?1:-1))});
-
-/* ==========================================================================
-   Pametni okviri za fotografije
-   Okviri citaju stvarnu sirinu i visinu svake fotografije i prilagodjavaju se njoj:
-   - prikaz apartmana: okvir dobija oblik koji odgovara vecini fotografija, a fotografija
-     koja se u njega ne uklapa prikaze se cela preko zamucene pozadine (bez secenja)
-   - galerija: fotografije se slazu u redove, svaka zadrzava svoj oblik
-   - lightbox: okvir prati oblik fotografije
-   - hero trake: duzina trake prati oblik fotografije
-   ========================================================================== */
-function imgRatio(im){return im&&im.naturalWidth&&im.naturalHeight?im.naturalWidth/im.naturalHeight:0}
-function clampN(x,a,b){return Math.min(b,Math.max(a,x))}
-/* pozovi cb cim je poznata velicina slike (odmah ako je vec ucitana) */
-function whenSized(im,cb){if(!im)return;if(imgRatio(im))cb();else im.addEventListener('load',cb)}
-
-/* ---------- pametni okvir: prikaz apartmana ---------- */
-(function(){
-  var v=$('#viewer'); if(!v) return;
-  var figs=$$('.track figure',v),raf=0;
-  function fit(){
-    raf=0;
-    var rs=[];
-    figs.forEach(function(f){var r=imgRatio($('img',f)); if(r) rs.push(r)});
-    if(!rs.length) return;
-    rs.sort(function(a,b){return a-b});
-    /* oblik okvira = srednji oblik svih fotografija, u razumnim granicama */
-    var mid=(rs[Math.floor((rs.length-1)/2)]+rs[Math.ceil((rs.length-1)/2)])/2;
-    var narrow=window.innerWidth<=600;
-    var fr=Math.round(clampN(mid,narrow?1:1.15,narrow?1.4:1.6)*100)/100;
-    v.style.setProperty('--vr',fr);
-    figs.forEach(function(f){
-      var im=$('img',f),r=imgRatio(im); if(!r) return;
-      /* koliki deo slike bi ostao vidljiv kad bi se secila da popuni okvir */
-      var shown=Math.min(r/fr,fr/r);
-      f.setAttribute('data-fit',shown>=.8?'cover':'contain');
-      f.style.setProperty('--bg','url("'+(im.currentSrc||im.src).replace(/"/g,'%22')+'")');
-    });
-  }
-  function sched(){if(!raf) raf=requestAnimationFrame(fit)}
-  figs.forEach(function(f){whenSized($('img',f),sched)});
-  window.addEventListener('resize',sched);
-})();
-
-/* ---------- pametni okvir: galerija ---------- */
-(function(){
-  var gal=$('#gal'); if(!gal) return;
-  var tiles=$$('.g',gal),GAP=12,rowEls=[],sig='',lastW=0,raf=0;
-  tiles.forEach(function(t){t._r=1.5}); /* dok se slika ne ucita, pretpostavi pejzaz */
-
-  /* najbolji raspored u redove: svaki red puni celu sirinu, a visine redova
-     su sto blize zeljenoj visini (dinamicko programiranje, redosled se ne menja) */
-  function partition(rs,W,T){
-    var n=rs.length,best=[0],cut=[0],i,j,sum,h,c;
-    for(j=1;j<=n;j++){
-      best[j]=Infinity;sum=0;
-      for(i=j-1;i>=0;i--){
-        sum+=rs[i];h=(W-GAP*(j-i-1))/sum; if(h<=0) break;
-        c=Math.pow(Math.log(h/T),2);
-        if(best[i]+c<best[j]){best[j]=best[i]+c;cut[j]=i}
-      }
-    }
-    var parts=[];j=n;while(j>0){parts.unshift([cut[j],j]);j=cut[j]}
-    return parts;
-  }
-
-  function layout(){
-    raf=0;
-    var W=gal.clientWidth; if(!W) return;
-    lastW=W;
-    var list=[];
-    tiles.forEach(function(t){var has=!!$('img',t);t.classList.toggle('is-empty',!has);if(has) list.push(t)});
-    if(!list.length) return;
-    var T=W<600?clampN(W*.6,210,300):clampN(W/3.6,180,360),maxH=T*1.6; /* telefon: veće fotografije, 1-2 u redu */
-    var rs=list.map(function(t){return clampN(t._r,.6,2.2)});
-    var parts=partition(rs,W,T);
-    var nsig=parts.map(function(p){return p.join('-')}).join('|')+'#'+list.length;
-    if(nsig!==sig){
-      sig=nsig;
-      while(rowEls.length<parts.length){var d=document.createElement('div');d.className='gal-row';gal.appendChild(d);rowEls.push(d)}
-      parts.forEach(function(p,k){for(var q=p[0];q<p[1];q++) rowEls[k].appendChild(list[q])});
-      while(rowEls.length>parts.length) gal.removeChild(rowEls.pop());
-    }
-    gal.classList.add('is-ready');
-    parts.forEach(function(p,k){
-      var sum=0,cnt=p[1]-p[0],q;
-      for(q=p[0];q<p[1];q++){sum+=rs[q];list[q].style.setProperty('--ar',rs[q].toFixed(3))}
-      var h=(W-GAP*(cnt-1))/sum,w=W;
-      if(h>maxH){h=maxH;w=h*sum+GAP*(cnt-1)} /* premalo slika za pun red: ne razvlacimo ih */
-      rowEls[k].style.height=h.toFixed(1)+'px';
-      rowEls[k].style.width=w.toFixed(1)+'px';
-    });
-  }
-  function sched(){if(!raf) raf=requestAnimationFrame(layout)}
-
-  tiles.forEach(function(t){whenSized($('img',t),function(){t._r=imgRatio($('img',t));sched()})});
-  if('MutationObserver' in window) new MutationObserver(sched).observe(gal,{childList:true,subtree:true}); /* slika koja ne postoji se uklanja */
-  if('ResizeObserver' in window) new ResizeObserver(function(){if(gal.clientWidth!==lastW) sched()}).observe(gal);
-  else window.addEventListener('resize',sched);
-  sched();
-})();
-
-/* ---------- pametni okvir: hero trake ---------- */
-(function(){
-  var st=$$('#strips .strip'); if(!st.length) return;
-  var mq=window.matchMedia?matchMedia('(max-width: 900px)'):null;
-  function apply(){
-    var row=!!(mq&&mq.matches);
-    st.forEach(function(s){
-      var r=imgRatio($('img',s));
-      if(!r){s.style.removeProperty('--fw');return}
-      /* uspravne trake: visoka slika dobija vise visine; trake u nizu: siroka slika dobija vise sirine */
-      s.style.setProperty('--fw',(row?clampN(r,.8,1.5):clampN(1/r,.8,1.6)).toFixed(2));
-    });
-  }
-  st.forEach(function(s){whenSized($('img',s),apply)});
-  if(mq){if(mq.addEventListener) mq.addEventListener('change',apply); else if(mq.addListener) mq.addListener(apply)}
-  apply();
-})();
-
-/* ---------- logo (slike/logo.png): prikazi ga u pravom obliku; siroki logo zamenjuje ime pored sebe ---------- */
-$$('.mono .logo').forEach(function(im){
-  whenSized(im,function(){
-    var r=imgRatio(im),m=im.parentNode;
-    m.classList.add('has-logo');
-    if(m.parentNode) m.parentNode.classList.toggle('logo-wide',r>1.5);
-  });
-});
-
-/* galerija se sakriva dok nema nijedne fotografije u folderu slike/ */
-window.addEventListener('load',function(){
-  if($$('#gal img').length) return;
-  var g=$('#gal');if(g)g.hidden=true;
-});
 
 /* ---------- counters ---------- */
 var counted=false;
@@ -342,14 +198,13 @@ function build(quiet){
   var L=[M.hello,'',M.name+': '+(name||'—')];if(ph)L.push(M.phone+': '+ph);
   L.push(M.ci+': '+dmy(fIn.value),M.co+': '+dmy(fOut.value),M.nt+': '+nCount(),M.gu+': '+g);if(note)L.push(M.note+': '+note);L.push('',M.thx);
   var msg=L.join('\n');$('#msg-out').value=msg;
-  $('#o-sms').href='sms:+38162577682?body='+encodeURIComponent(msg);
+  $('#o-wa').href='https://wa.me/381653294507?text='+encodeURIComponent(msg);
+  $('#o-mail').href='mailto:zlatiborapartmani06@gmail.com?subject='+encodeURIComponent(M.sub)+'&body='+encodeURIComponent(msg);
   var was=outEl.hidden;outEl.hidden=false;if(was&&!quiet)outEl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});
 }
 $('#inq').addEventListener('submit',function(e){e.preventDefault();build(false)});
 $('#o-copy').addEventListener('click',function(){var t=$('#msg-out');copyText(t.value,t)});
-/* Instagram ne prima unapred popunjenu poruku, pa se tekst kopira pre otvaranja razgovora */
-$('#o-ig').addEventListener('click',function(){copyText($('#msg-out').value)});
 
 /* init */
-var saved=store.get('tl-lang');setLang(saved==='en'?'en':'sr');
+var saved=store.get('za-lang');setLang(saved==='en'?'en':'sr');
 })();
