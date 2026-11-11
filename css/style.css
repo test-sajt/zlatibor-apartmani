@@ -1,6 +1,6 @@
 /* ==========================================================================
    Zlatibor Apartmani - stilovi
-   Raspored: osnova -> tipografija -> dugmad -> navigacija -> hero ->
+   Raspored: osnova -> tipografija -> dugmad -> navigacija -> hero -> marquee ->
    kartice -> smestaj -> galerija -> wellness -> lokacija -> instagram ->
    kontakt -> footer / dock / toast
    ========================================================================== */
@@ -17,7 +17,7 @@ body {
 
 /* Layout: dark boutique-hotel one-pager. Hero pairs the headline with slanted photo strips (the shape used in the
 business's own "Contact Us" poster), then alternating bands: feature cards, tabbed stay viewer, bento gallery,
-night-time location illustration, Instagram proof, and an inquiry composer. */
+glowing Wellness orb, night-time location illustration, Instagram proof, and an inquiry composer. */
 
 :root {
   --ink: #0f0d11;
@@ -277,6 +277,28 @@ h3 {
   pointer-events: none;
 }
 
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(212,173,99,.11),transparent 62%);
+  pointer-events: none;
+  z-index: 40;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity .6s;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    nav
    ========================================================================== */
@@ -320,6 +342,14 @@ h3 {
   gap: 12px;
   text-decoration: none;
   min-width: 0;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--line-2),0 0 28px rgba(212,173,99,.35);
+  flex: none;
 }
 
 .brand-t {
@@ -679,9 +709,8 @@ h3 {
 }
 
 .strip {
-  flex: var(--fw,1) 1 0;
+  flex: 1 1 0;
   min-height: 0;
-  margin: 0;
   margin-top: -3.4%;
   filter: drop-shadow(0 0 14px rgba(212,173,99,.28)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
   translate: calc(var(--mx,0)*var(--k,20)*1px) calc(var(--my,0)*var(--k,20)*.45px);
@@ -748,6 +777,12 @@ h3 {
   animation: floaty 6s ease-in-out infinite alternate;
 }
 
+.badge img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 .badge span {
   display: grid;
   line-height: 1.25;
@@ -799,6 +834,46 @@ h3 {
     left: auto;
     right: 2%;
     bottom: -24px;
+  }
+}
+
+/* ==========================================================================
+   marquee
+   ========================================================================== */
+
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: linear-gradient(90deg,var(--ink-2),#1a151d,var(--ink-2));
+  padding-block: 20px;
+}
+
+.mq {
+  display: flex;
+  width: max-content;
+  animation: mq 38s linear infinite;
+}
+
+.mq span {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(22px,3vw,44px);
+  padding-right: clamp(22px,3vw,44px);
+  font: italic 400 clamp(1.4rem,3vw,2.3rem)/1 var(--display);
+  color: var(--gold-hi);
+  white-space: nowrap;
+}
+
+.mq span i {
+  font-style: normal;
+  color: var(--gold);
+  font-size: .55em;
+  opacity: .8;
+}
+
+@keyframes mq {
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -970,13 +1045,50 @@ svg.i {
 
 .viewer {
   position: relative;
-  aspect-ratio: var(--vr,4/3.2);
+  aspect-ratio: 4/3.2;
   max-width: 100%;
   border-radius: var(--r);
   overflow: hidden;
   border: 1px solid var(--line-2);
   background: var(--ink-3);
   box-shadow: 0 40px 90px -30px rgba(0,0,0,.9),0 0 90px -30px rgba(212,173,99,.5);
+}
+
+.viewer figure {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1s var(--ease);
+  pointer-events: none;
+}
+
+.viewer figure.on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.viewer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 6s linear;
+}
+
+.viewer figure.on img {
+  transform: scale(1.16);
+}
+
+.viewer figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 70px 24px 22px;
+  background: linear-gradient(0deg,rgba(10,8,12,.9),transparent);
+  font: 300 1rem/1.5 var(--body);
+  color: var(--cream);
 }
 
 .viewer::after {
@@ -986,6 +1098,36 @@ svg.i {
   border: 1px solid rgba(244,220,162,.28);
   border-radius: calc(var(--r) - 8px);
   pointer-events: none;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.tab {
+  padding: .8em 1.3em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 400 .76rem/1 var(--body);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  transition: all .35s var(--ease);
+}
+
+.tab:hover {
+  border-color: var(--gold);
+  color: var(--gold-hi);
+}
+
+.tab[aria-selected="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1a1308;
+  box-shadow: 0 0 30px -4px rgba(212,173,99,.7);
 }
 
 .stay-info {
@@ -1068,12 +1210,39 @@ svg.i {
   padding-top: 0;
 }
 
+.apt-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.apt-no {
+  font: italic 500 clamp(2rem,5vw,3.2rem)/1 var(--display);
+  color: var(--gold);
+  opacity: .9;
+}
+
+.apt-t {
+  font-size: clamp(1.5rem,3.2vw,2.3rem);
+  line-height: 1.1;
+}
+
 .apt-media {
   min-width: 0;
 }
 
 .apt .btn {
   justify-self: start;
+}
+
+/* drugi apartman: slike desno na racunaru */
+@media (min-width: 981px) {
+  .apt.flip .stay-grid {
+    grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr);
+  }
+  .apt.flip .apt-media {
+    order: 2;
+  }
 }
 
 /* mesto za sliku dok fotografija ne postoji */
@@ -1102,42 +1271,38 @@ svg.i {
   position: relative;
 }
 
+.viewer figcaption {
+  z-index: 2;
+}
+
 .viewer figure img[src] {
   z-index: 1;
 }
 
-/* pametni okvir: ako se slika ne uklapa u oblik okvira, ne secemo je,
-   nego je prikazemo celu preko zamucene i potamnjene kopije iste slike */
-.viewer figure {
-  overflow: hidden;
-}
-
-.viewer figure::before {
-  content: "";
-  position: absolute;
-  inset: -12%;
-  z-index: 1;
-  background: var(--bg) center/cover no-repeat;
-  filter: blur(26px) saturate(1.15) brightness(.55);
-  opacity: 0;
-  transition: opacity .4s;
-}
-
-.viewer figure[data-fit="contain"]::before {
-  opacity: 1;
-}
-
-.viewer figure[data-fit="contain"] img {
-  object-fit: contain;
-  filter: drop-shadow(0 12px 28px rgba(0,0,0,.5));
-}
-
 @media (max-width: 600px) {
   .viewer {
-    aspect-ratio: var(--vr,4/3.4);
+    aspect-ratio: 4/3.4;
+  }
+  .viewer figcaption {
+    padding: 54px 16px 16px;
+    font-size: .9rem;
   }
   .viewer::after {
     inset: 8px;
+  }
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: calc(var(--gut) * -1);
+    padding-inline: var(--gut);
+  }
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .tab {
+    flex: none;
+    padding: .75em 1.1em;
   }
   .apt .btn {
     justify-self: stretch;
@@ -1149,38 +1314,10 @@ svg.i {
    ========================================================================== */
 
 .gal {
-  /* rezerva dok JS ne preuzme (ili ako je JS iskljucen): obicna mreza */
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns: repeat(12,minmax(0,1fr));
+  grid-auto-rows: clamp(54px,7.6vw,96px);
   gap: 12px;
-}
-
-.gal .g {
-  aspect-ratio: 4/3;
-}
-
-/* pametni raspored: svaki red ima istu visinu, a sirina svake slike
-   je srazmerna njenom obliku (--ar), pa nista ne ostaje odseceno */
-.gal.is-ready {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.gal-row {
-  display: flex;
-  gap: 12px;
-  width: 100%;
-}
-
-.gal.is-ready .g {
-  aspect-ratio: auto;
-  flex: var(--ar,1.5) 1 0%;
-  min-width: 0;
-}
-
-.gal .g.is-empty {
-  display: none;
 }
 
 .g {
@@ -1237,6 +1374,62 @@ svg.i {
   color: var(--gold-hi);
 }
 
+.g1 {
+  grid-column: 1/6;
+  grid-row: 1/5;
+}
+
+.g2 {
+  grid-column: 6/9;
+  grid-row: 1/6;
+}
+
+.g3 {
+  grid-column: 9/13;
+  grid-row: 1/4;
+}
+
+.g4 {
+  grid-column: 9/13;
+  grid-row: 4/7;
+}
+
+.g5 {
+  grid-column: 1/6;
+  grid-row: 5/9;
+}
+
+.g6 {
+  grid-column: 6/9;
+  grid-row: 6/9;
+}
+
+.g7 {
+  grid-column: 9/13;
+  grid-row: 7/9;
+}
+
+@media (max-width: 760px) {
+  .gal {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-auto-rows: 150px;
+  }
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .g6,
+  .g7 {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .g1,
+  .g5 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
 
 .lb {
   position: fixed;
@@ -1260,11 +1453,8 @@ svg.i {
 }
 
 .lb img {
-  --r: 1.5;
-  width: min(94vw,980px,calc(72vh*var(--r)));
-  height: auto;
-  aspect-ratio: var(--r);
-  transition: width .35s var(--ease);
+  max-width: min(94vw,980px);
+  max-height: 72vh;
   border-radius: 14px;
   border: 1px solid var(--line-2);
   box-shadow: 0 0 120px -20px rgba(212,173,99,.55);
@@ -1350,6 +1540,235 @@ svg.i {
   background: radial-gradient(700px 520px at 78% 50%,rgba(138,75,42,.45),transparent 65%),radial-gradient(600px 400px at 10% 10%,rgba(212,173,99,.12),transparent 60%);
 }
 
+.mist i {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(255,225,170,.20),transparent 68%);
+  filter: blur(30px);
+  animation: mist 14s ease-in-out infinite alternate;
+}
+
+.mist i:nth-child(1) {
+  width: 420px;
+  height: 420px;
+  left: -6%;
+  top: 10%;
+}
+
+.mist i:nth-child(2) {
+  width: 520px;
+  height: 520px;
+  right: 10%;
+  top: -18%;
+  animation-delay: -5s;
+  animation-duration: 18s;
+}
+
+.mist i:nth-child(3) {
+  width: 360px;
+  height: 360px;
+  right: -4%;
+  bottom: -12%;
+  animation-delay: -9s;
+}
+
+@keyframes mist {
+  from {
+    transform: translate3d(0,0,0) scale(1);
+  }
+  to {
+    transform: translate3d(40px,-36px,0) scale(1.25);
+  }
+}
+
+.well-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,.9fr);
+  gap: clamp(28px,5vw,80px);
+  align-items: center;
+}
+
+.well-list {
+  display: grid;
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.well-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255,255,255,.025);
+  font: 400 1.02rem/1.3 var(--body);
+  transition: all .4s var(--ease);
+}
+
+.well-list li:hover {
+  border-color: var(--gold);
+  background: rgba(212,173,99,.07);
+  transform: translateX(6px);
+}
+
+.well-list .ico {
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+
+.well-list .ico svg {
+  width: 20px;
+  height: 20px;
+}
+
+.orb {
+  position: relative;
+  width: min(100%,430px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.orb .core {
+  position: absolute;
+  inset: 17%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 28%,#fff0c9,var(--gold) 34%,var(--leather) 70%,#2a1710);
+  box-shadow: 0 0 140px 36px rgba(212,173,99,.34),inset -20px -26px 60px rgba(30,14,6,.7);
+  animation: breathe 7s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(.97);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.orb .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  animation: ring 7s ease-out infinite;
+}
+
+.orb .ring:nth-child(2) {
+  animation-delay: 2.3s;
+}
+
+.orb .ring:nth-child(3) {
+  animation-delay: 4.6s;
+}
+
+@keyframes ring {
+  0% {
+    transform: scale(.46);
+    opacity: .9;
+  }
+  100% {
+    transform: scale(1.04);
+    opacity: 0;
+  }
+}
+
+.steam {
+  position: absolute;
+  left: 50%;
+  top: -4%;
+  width: 46%;
+  height: 56%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.steam path {
+  fill: none;
+  stroke: rgba(255,236,196,.6);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 60 140;
+  animation: steam 5s ease-in-out infinite;
+  filter: blur(.4px);
+}
+
+.steam path:nth-child(2) {
+  animation-delay: -1.6s;
+  stroke: rgba(244,220,162,.45);
+}
+
+.steam path:nth-child(3) {
+  animation-delay: -3.2s;
+}
+
+@keyframes steam {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -20;
+    opacity: 0;
+  }
+}
+
+.tag {
+  position: absolute;
+  padding: .7em 1.2em;
+  border-radius: 999px;
+  background: rgba(18,15,21,.72);
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: 500 .72rem/1 var(--body);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold-hi);
+  box-shadow: 0 14px 40px -10px rgba(0,0,0,.8);
+  animation: floaty 5s ease-in-out infinite alternate;
+}
+
+.tag.t1 {
+  left: -2%;
+  top: 22%;
+}
+
+.tag.t2 {
+  right: -2%;
+  top: 46%;
+  animation-delay: -2s;
+}
+
+.tag.t3 {
+  left: 8%;
+  bottom: 6%;
+  animation-delay: -3.5s;
+}
+
+@media (max-width: 900px) {
+  .well-grid {
+    grid-template-columns: minmax(0,1fr);
+  }
+  .orb {
+    width: min(86%,360px);
+  }
+  .tag.t1 {
+    left: 0;
+  }
+  .tag.t2 {
+    right: 0;
+  }
+}
+
 /* ==========================================================================
    location
    ========================================================================== */
@@ -1433,6 +1852,11 @@ svg.i {
   top: 55%;
 }
 
+.map .l2 {
+  left: 68%;
+  top: 84%;
+}
+
 .star {
   animation: tw 3.6s ease-in-out infinite alternate;
 }
@@ -1443,6 +1867,17 @@ svg.i {
   }
   to {
     opacity: .95;
+  }
+}
+
+.route {
+  stroke-dasharray: 7 9;
+  animation: dash 1.6s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -32;
   }
 }
 
@@ -1461,6 +1896,11 @@ svg.i {
     transform: scale(3.2);
     opacity: 0;
   }
+}
+
+.shim {
+  stroke-dasharray: 30 40;
+  animation: dash 3.4s linear infinite;
 }
 
 @media (max-width: 900px) {
@@ -1862,99 +2302,6 @@ svg.i {
   }
 }
 
-/* ==========================================================================
-   Tomi Lux - dodaci (monogram, mesta za fotografije, tackice, mapa)
-   ========================================================================== */
-
-.mono {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  flex: none;
-  border-radius: 50%;
-  font: 500 1rem/1 var(--display);
-  letter-spacing: .04em;
-  color: var(--gold-hi);
-  background: radial-gradient(circle at 30% 25%,rgba(244,220,162,.28),rgba(138,75,42,.38));
-  box-shadow: 0 0 0 1px var(--line-2),0 0 28px rgba(212,173,99,.35);
-}
-
-.badge .mono {
-  width: 40px;
-  height: 40px;
-  font-size: .9rem;
-}
-
-/* hero trake: zlatno mesto za sliku dok fotografija ne postoji */
-.strip .in {
-  position: relative;
-  background: radial-gradient(circle at 30% 20%,rgba(212,173,99,.3),transparent 60%),linear-gradient(160deg,var(--ink-4),var(--ink-2));
-}
-
-.strip .in::after {
-  content: "★";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: var(--gold);
-  opacity: .45;
-  font-size: 2.4rem;
-}
-
-.strip img {
-  position: relative;
-  z-index: 1;
-}
-
-/* galerija: pozadina ispod fotografije */
-.g {
-  background: radial-gradient(circle at 30% 20%,rgba(212,173,99,.14),transparent 60%),linear-gradient(160deg,var(--ink-3),var(--ink-2));
-}
-
-.g img {
-  position: relative;
-  z-index: 1;
-}
-
-.g::after {
-  z-index: 1;
-}
-
-/* tackice ispod prikaza apartmana */
-.dots {
-  display: flex;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  border-radius: 999px;
-  border: 1px solid var(--line-2);
-  transition: all .4s var(--ease);
-}
-
-.dot:hover {
-  border-color: var(--gold);
-}
-
-.dot[aria-selected="true"] {
-  width: 30px;
-  background: var(--gold);
-  border-color: var(--gold);
-  box-shadow: 0 0 18px -2px rgba(212,173,99,.8);
-}
-
-/* mapa: jedna oznaka umesto jezera */
-.map .l1 {
-  left: 50%;
-  top: 56%;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1964,287 +2311,5 @@ svg.i {
     animation-delay: 0s !important;
     transition-duration: .001ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-/* ==========================================================================
-   Tomi Lux - slajder sa strelicama, video galerija, mobilni prikaz
-   ========================================================================== */
-.track{position:absolute;inset:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
-.track::-webkit-scrollbar{display:none}
-.viewer figure{flex:0 0 100%;position:relative;margin:0;scroll-snap-align:center;scroll-snap-stop:always}
-.viewer img{width:100%;height:100%;object-fit:cover}
-.viewer:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
-.vnav{position:absolute;top:50%;z-index:3;width:48px;height:48px;margin-top:-24px;border-radius:50%;border:1px solid var(--line-2);background:rgba(15,13,17,.72);display:grid;place-items:center;transition:border-color .3s,background .3s}
-.vnav.pv{left:14px}.vnav.nx{right:14px}
-.vnav svg{width:22px;height:22px;stroke:var(--gold-hi)}
-.vnav:hover{border-color:var(--gold);background:rgba(212,173,99,.22)}
-.vcount{position:absolute;right:18px;bottom:16px;z-index:3;padding:.45em .9em;border-radius:999px;background:rgba(15,13,17,.72);font:500 .72rem/1 var(--body);letter-spacing:.14em;color:var(--gold-hi)}
-.dots{justify-content:center}
-.dot{position:relative}
-.dot::after{content:"";position:absolute;inset:-14px -4px}
-.hero h1{font-size:clamp(2.3rem,5.8vw,5.1rem)}
-a.map{display:block}
-.well{padding-block:clamp(64px,9vw,112px)}
-.well::before{background:radial-gradient(720px 420px at 50% 50%,rgba(138,75,42,.4),transparent 65%)}
-.well-in{display:grid;gap:22px;justify-items:center;text-align:center;max-width:780px}
-.well-in .lead,.well-in .note{margin-inline:auto}
-.vids-h{margin:clamp(40px,6vw,72px) 0 22px;font-size:clamp(1.5rem,3vw,2.1rem)}
-.vids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.vid{position:relative;margin:0;aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3)}
-.vid video{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0;cursor:pointer;transition:opacity .6s}
-.vid.ok video{opacity:1}
-body.menu-open{overflow:hidden}
-@media (max-width:900px){
-  .hero-vis{margin-inline:calc(var(--gut)*-1);margin-bottom:36px}
-  .strips{height:clamp(230px,66vw,400px)}
-  .strip{margin-left:-2.4%;filter:drop-shadow(0 10px 16px rgba(0,0,0,.5))}
-  .strip .in{clip-path:polygon(9% 0,100% 0,91% 100%,0 100%);animation:none}
-  .strip:first-child .in{clip-path:polygon(0 0,100% 0,91% 100%,0 100%)}
-  .strip img{animation:none;transform:none}
-  .badge{right:var(--gut);bottom:-22px;animation:none}
-}
-@media (max-width:760px){
-  .dust,.grain{display:none}
-  .gold-text,.btn-gold{animation:none}
-  .btn-gold::after{display:none}
-  .chip,.btn-ghost,.badge{backdrop-filter:none;-webkit-backdrop-filter:none}
-  .cta-row .btn{flex:1 1 100%}
-  .spot:hover{transform:none}
-  .vnav{width:44px;height:44px;margin-top:-22px}
-  .vids{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut);scroll-padding-inline:var(--gut)}
-  .vids::-webkit-scrollbar{display:none}
-  .vid{flex:0 0 66%;scroll-snap-align:start}
-}
-
-/* ==========================================================================
-   Tomi Lux - Google mapa ispod dugmeta i mesto za logo (slike/logo.png)
-   ========================================================================== */
-.gmap {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  aspect-ratio: 4/3;
-  border-radius: var(--r);
-  overflow: hidden;
-  border: 1px solid var(--line-2);
-  /* ovo se vidi dok se mapa ucitava ili ako nema interneta */
-  background: radial-gradient(circle at 30% 20%,rgba(212,173,99,.14),transparent 60%),linear-gradient(160deg,var(--ink-3),var(--ink-2));
-  box-shadow: 0 30px 70px -30px rgba(0,0,0,.9),0 0 70px -34px rgba(212,173,99,.5);
-}
-
-.gmap iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* logo: dok slike/logo.png ne postoji, vidi se krug sa slovima TL.
-   Kad postoji, prikazuje se u svom pravom obliku (kvadratan, sirok, okrugao...) */
-.mono .logo {
-  display: none;
-}
-
-.mono.has-logo {
-  display: flex;
-  align-items: center;
-  width: auto;
-  height: 44px;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  font-size: 0;
-}
-
-.mono.has-logo .logo {
-  display: block;
-  height: 44px;
-  width: auto;
-  max-width: 120px;
-  object-fit: contain;
-}
-
-/* siroki logo je obicno natpis sa imenom, pa se ime pored njega sakriva */
-.brand.logo-wide .brand-t {
-  display: none;
-}
-
-.brand.logo-wide .mono.has-logo .logo {
-  max-width: 140px;
-}
-
-/* lokacija: bez ilustracije, tekst i mapa u jednoj koloni */
-.loc-grid {
-  grid-template-columns: minmax(0,1fr);
-}
-
-.loc-copy {
-  width: 100%;
-  max-width: 880px;
-}
-
-.gmap {
-  aspect-ratio: 16/9;
-}
-
-@media (max-width: 600px) {
-  .gmap {
-    aspect-ratio: 4/3;
-  }
-}
-
-
-/* ==========================================================================
-   Tomi Lux - ISPRAVKE ZA TELEFON
-   ========================================================================== */
-
-/* hero: kad se slike završe, pozadina se mekano utapa u tamnu boju (bez oštre ivice) */
-.hero::before {
-  -webkit-mask-image: linear-gradient(#000 78%, transparent);
-  mask-image: linear-gradient(#000 78%, transparent);
-}
-
-@media (max-width: 900px) {
-  /* 4 jednake trake preko cele širine, sa tankim ravnomernim razmakom */
-  .strips {
-    height: clamp(210px, 58vw, 340px);
-  }
-  .strip {
-    flex: 1 1 0;
-    margin: 0;
-    margin-left: calc(-2.4% + 5px);
-  }
-  .strip:first-child {
-    margin-left: 0;
-  }
-  .badge {
-    right: var(--gut);
-    bottom: -26px;
-  }
-  .hero-vis {
-    margin-bottom: 44px;
-  }
-}
-
-@media (max-width: 600px) {
-  /* manje praznog prostora između sekcija */
-  .sec {
-    padding-block: 56px;
-  }
-  .sh {
-    margin-bottom: 28px;
-  }
-  .h2 {
-    font-size: clamp(1.85rem, 8vw, 2.3rem);
-  }
-
-  /* kartice sa prednostima: ikona levo, tekst desno (kraće za skrolovanje) */
-  .feats {
-    gap: 12px;
-  }
-  .feat {
-    grid-template-columns: auto minmax(0, 1fr);
-    column-gap: 16px;
-    row-gap: 4px;
-    align-items: center;
-    padding: 18px;
-  }
-  .feat .ico {
-    grid-row: 1 / span 2;
-    width: 48px;
-    height: 48px;
-  }
-  .feat h3 {
-    font-size: 1.2rem;
-  }
-  .feat p {
-    font-size: .88rem;
-  }
-
-  /* adresa i mapa preko cele širine */
-  .addr {
-    width: 100%;
-  }
-  .loc-copy {
-    gap: 18px;
-  }
-
-  /* video: manji, da se vide barem dva odjednom */
-  .vid {
-    flex: 0 0 46%;
-  }
-  .vids {
-    gap: 10px;
-  }
-
-  /* instagram kartica */
-  .ig-card {
-    padding: 26px 22px;
-    border-radius: 22px;
-  }
-  .stat b {
-    font-size: 2.3rem;
-  }
-
-  /* formular: dugme preko cele širine (inline stil se mora pregaziti sa !important) */
-  .form > .btn {
-    justify-self: stretch !important;
-  }
-  .form {
-    padding: 22px 18px;
-  }
-  .k-row {
-    padding: 14px;
-    gap: 12px;
-  }
-
-  /* footer centriran */
-  .foot-in {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-}
-
-/* veoma uski telefoni (iPhone SE, mali Android): da zaglavlje ne probije ekran */
-@media (max-width: 400px) {
-  .nav-in {
-    gap: 8px;
-  }
-  .brand {
-    gap: 8px;
-  }
-  .brand-t b {
-    font-size: 1.05rem;
-    letter-spacing: .1em;
-  }
-  .brand-t i {
-    letter-spacing: .38em;
-  }
-  .nav-r {
-    gap: 8px;
-  }
-  .lang span {
-    padding: .6em .7em;
-  }
-  .burger {
-    width: 40px;
-    height: 40px;
-  }
-  .burger i {
-    left: 11px;
-    right: 11px;
-  }
-  .burger i:nth-child(1) {
-    top: 16px;
-  }
-  .burger i:nth-child(2) {
-    top: 23px;
-  }
-  .nav.open .burger i:nth-child(1),
-  .nav.open .burger i:nth-child(2) {
-    top: 19.5px;
   }
 }
